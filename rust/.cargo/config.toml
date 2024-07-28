@@ -1,0 +1,6 @@
+[unstable]
+build-std = ["std", "panic_abort", "core", "compiler_builtins", "alloc"]
+
+[build]
+target = "i686.json"
+rustflags = ["-C", "link-arg=-T../libc/link.ld", "-C", "link-arg=../libc/libsayori_c.a"]
