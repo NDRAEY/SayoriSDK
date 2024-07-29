@@ -15,45 +15,44 @@ extern "C" {
 namespace std {
 	class string {
 	public:
-	    string();
-	    string(const char* charptr);
-	    string(const string& str) = default;
-	    ~string();
+		string();
+		string(const char* charptr);
+		string(const string& str);
+		~string();
 
-	    [[nodiscard]] char * begin() const;
-	    [[nodiscard]] char * end() const;
+		[[nodiscard]] char * begin() const;
+		[[nodiscard]] char * end() const;
 
-	    const char* c_str() const;
-	    char* data() const;
-	    
+		const char* c_str() const;
+		char* data() const;
 		void resize(size_t new_size);
-	    void Append(const string &str);
-	    void Append(const char *charptr);
-	    void Append(char character);
-	    string Slice(int start = 0, int sting_length = -1);
+		void Append(const string &str);
+		void Append(const char *charptr);
+		void Append(char character);
 
 		bool empty() const;
-
 		size_t length() const;
+		
+		size_t find(const char* s, size_t pos = 0) const;
 
-	    string& operator =(const char* charptr);
-	    
-	    string& operator +(const char* charptr);
-	    
-	    string& operator +=(const char* charptr);
-	    string& operator +=(const string& str);
-	    
-	    char operator[](int index);
+		string& operator =(const char* charptr);
+		string& operator =(const string& charptr);
 
-	    bool operator==(const char* charptr);
-	    bool operator==(const string& string);
+		string& operator +(const char* charptr);
 
-	    bool operator!=(const char* charptr);
+		string& operator +=(const char* charptr);
+		string& operator +=(const string& str);
+
+		char operator[](int index);
+
+		bool operator==(const char* charptr);
+		bool operator==(const string& string);
+
+		bool operator!=(const char* charptr);
 
 	private:
-	    char* string_container = nullptr;
-	    int _length = 0;
+		char* string_container = nullptr;
+		int _length = 0;
 	};
-
 }
 

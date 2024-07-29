@@ -1,6 +1,7 @@
 // -*- C++ -*-
 
 #include "pair"
+#include "vector"
 
 using namespace std;
 
@@ -8,6 +9,8 @@ namespace std {
 	template <typename KeyType, typename ValueType>
 	class map {
 	public:
+		typedef pair<KeyType, ValueType> PairElement;
+
 		map() = default;
 		~map() = default;
 
@@ -24,8 +27,19 @@ namespace std {
 			return _table.back().second;
 		}
 
+		PairElement* begin() {
+			return _table.begin();
+		}
+
+		PairElement* end() {
+			return _table.end();
+		}
+
+		vector<PairElement>& table() {
+			return _table;
+		}
 	private:
-		vector<pair<KeyType, ValueType>> _table;
+		vector<PairElement> _table;
 	};
 }
 

@@ -10,18 +10,18 @@ namespace std {
 	template<typename T>
 	class vector {
 	public:
-	    vector() {
-		_size = 0;
-		_capacity = 1;
+		vector() {
+			_size = 0;
+			_capacity = 1;
 
-		_container = (T*)calloc(_capacity, 1);
-	    }
+			_container = (T*)calloc(_capacity, 1);
+		}
 
 	    ~vector() {
 		free(_container);
 	    }
 
-	    void push_back(const T& element) {
+	    void push_back(const T element) {
 		if(_size + 1 >= _capacity) {
 		    _capacity = _capacity == 0 ? 1 : 2 * _capacity;
 
@@ -41,12 +41,12 @@ namespace std {
 		--_size;
 	    }
 
-	    bool empty() {
+	    bool empty() const {
 		return _size == 0;
 	    }
 
-	    size_t size() {
-		return size;
+	    size_t size() const {
+		return _size;
 	    }
 
 	    T* data() {
