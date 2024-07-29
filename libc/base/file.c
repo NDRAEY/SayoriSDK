@@ -13,6 +13,27 @@ int fd_open(const char* filename, size_t mode) {
     return fd;
 }
 
+void fd_seek(int fd, size_t off, size_t whence) {
+    _syscall(
+            SYSCALL_FILE_DESCR_SEEK,
+            fd,
+            off,
+            whence
+	);
+}
+
+size_t fd_tell(int fd) {
+    size_t value = 0;
+    _syscall(
+            SYSCALL_FILE_DESCR_TELL,
+            fd,
+            (size_t)&value,
+            0
+    );
+
+    return value;
+}
+
 void fd_read(int fd, size_t size, size_t count, void* buffer) {
     _syscall(
             SYSCALL_FILE_DESCR_READ,

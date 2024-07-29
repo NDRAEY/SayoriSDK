@@ -28,6 +28,10 @@ namespace std {
 			return _table.back().second;
 		}
 
+		void clear() {
+			_table.clear();
+		}
+
 		PairElement* begin() {
 			return _table.begin();
 		}
