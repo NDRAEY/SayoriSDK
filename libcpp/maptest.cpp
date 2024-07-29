@@ -4,14 +4,6 @@
 
 using namespace std;
 
-void __printf_cerr(const char* _s);
-void __printf_cout(const char* _s);
-
-extern "C" void __cpp_init() {
-	new (&cerr) ostream(__printf_cerr);
-	new (&cout) ostream(__printf_cout);
-}
-
 int main() {
 	__cpp_init();
 
@@ -30,7 +22,7 @@ int main() {
 
 	std::string mystring = "Hello, World from C++!";
 
-	cout << mystring << "\n";
+	cout << mystring << " " << 123456 << endl << endl;
 
 	return 0;
 }

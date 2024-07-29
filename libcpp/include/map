@@ -1,6 +1,6 @@
 // -*- C++ -*-
 
-#include "pair"
+#include "utility"
 #include "vector"
 
 using namespace std;
@@ -26,6 +26,16 @@ namespace std {
 			_table.push_back(pair {key, ValueType{}});
 			
 			return _table.back().second;
+		}
+
+		PairElement* find(const KeyType& key) {
+			for(PairElement* elem = begin(); elem != end(); elem++) {
+				if(elem->first == key) {
+					return elem;
+				}
+			}
+
+			return end();
 		}
 
 		void clear() {

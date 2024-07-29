@@ -21,6 +21,13 @@ namespace std {
 
 		memcpy(string_container, charptr, _length);
 	}
+	
+	string::string(const char* charptr, size_t length) {
+		_length = length;
+		string_container = (char*)calloc(length + 1, 1);
+
+		memcpy(string_container, charptr, length);
+	}
 
 	string::string(const string& str) {
 		_length = str.length();
@@ -69,7 +76,9 @@ namespace std {
 	void string::resize(size_t size) {
 		string_container = (char*)realloc(string_container, size + 1);
 
-		_length = size;
+		// TODO: Implement capacity variable (like in vector)
+
+		//_length = size;
 	}
 
 	bool string::empty() const {
@@ -91,6 +100,17 @@ namespace std {
 
 		string_container = (char*)calloc(_length + 1, 1);
 		memcpy(string_container, str.c_str(), _length);
+		
+		return *this;
+	}
+
+	string& string::operator=(const char* charptr) {
+		_length = strlen(charptr);
+
+		free(string_container);
+
+		string_container = (char*)calloc(_length + 1, 1);
+		memcpy(string_container, charptr, _length);
 		
 		return *this;
 	}
@@ -180,5 +200,4 @@ namespace std {
 
 	    return (int)result;
 	}
-
 }

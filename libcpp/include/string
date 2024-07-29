@@ -18,6 +18,7 @@ namespace std {
 	public:
 		string();
 		string(const char* charptr);
+		string(const char* charptr, size_t length);
 		string(const string& str);
 		~string();
 
@@ -61,5 +62,8 @@ namespace std {
 	};
 
 	int stoi(const std::string& str, size_t* pos = nullptr, int base = 10);
+	__attribute__((always_inline)) static inline bool isdigit(char ch) {
+		return ch >= '0' && ch <= '9';
+	}
 }
 
