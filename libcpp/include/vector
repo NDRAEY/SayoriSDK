@@ -62,7 +62,7 @@ namespace std {
 	    }
 
 		T& back() {
-			return *end();
+			return *(end() - (_size == 0 ? 0 : 1));
 		}
 
 	    T& operator[](size_t index) {
