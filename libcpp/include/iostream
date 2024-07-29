@@ -3,5 +3,22 @@
 #pragma once
 
 namespace std {
-	
+	class ostream {
+	public:
+		using print_func = void(*)(const char*);
+		
+		ostream(print_func fn) : _print_fn(fn) {};
+		~ostream() = default;
+
+	        ostream& operator<<(const char* msg) {
+        		_print_fn(msg);
+            		return *this;
+        	}
+
+	private:
+		print_func _print_fn;
+	};
+
+	extern ostream cerr;
+	extern ostream cout;
 }

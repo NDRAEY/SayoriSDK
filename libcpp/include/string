@@ -7,6 +7,7 @@
 #pragma once
 
 #include "memory"
+#include "iostream"
 
 extern "C" {
 	#include <stdarg.h>
@@ -49,6 +50,10 @@ namespace std {
 		bool operator==(const string& string);
 
 		bool operator!=(const char* charptr);
+
+		friend ostream& operator<<(ostream& stream, const string& str) {
+			return stream << str.c_str();
+		}
 
 	private:
 		char* string_container = nullptr;

@@ -14,12 +14,19 @@ namespace std {
 			_size = 0;
 			_capacity = 1;
 
-			_container = (T*)calloc(_capacity, 1);
+			_container = (T*)calloc(1, sizeof(T));
 		}
 
 	    ~vector() {
 		free(_container);
 	    }
+
+		void clear() {
+			_size = 0;
+			_capacity = 1;
+
+			_container = (T*)calloc(1, sizeof(T));
+		}
 
 	    void push_back(const T element) {
 		if(_size + 1 >= _capacity) {
