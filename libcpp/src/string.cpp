@@ -75,10 +75,9 @@ namespace std {
 
 	void string::resize(size_t size) {
 		string_container = (char*)realloc(string_container, size + 1);
+		string_container[size] = 0;
 
-		// TODO: Implement capacity variable (like in vector)
-
-		//_length = size;
+		_length = size;
 	}
 
 	bool string::empty() const {

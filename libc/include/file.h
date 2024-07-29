@@ -20,5 +20,5 @@ int fd_open(const char* filename, size_t mode);
 void fd_read(int fd, size_t size, size_t count, void* buffer);
 void fd_write(int fd, size_t size, size_t count, const void* buffer);
 void fd_seek(int fd, size_t off, size_t whence);
-size_t fd_tell(int fd);
+int fd_tell(int fd);
 void fd_close(int fd);

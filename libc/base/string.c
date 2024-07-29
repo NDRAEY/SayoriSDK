@@ -16,6 +16,10 @@ bool isalnum(char c){
             (c >= 'A' && c <= 'Z') ;
 }
 
+bool isspace(char c) {
+	return c == ' ' || c == '\n' || c == '\t';
+}
+
 /**
  * @brief Проверяет, является ли символ формата UTF-8
  *

@@ -11,6 +11,7 @@ SAYORI_INLINE bool isdigit(char a) {
 }
 
 bool isalnum(char c);
+bool isspace(char c);
 bool isUTF(char c);
 bool isSymbol(char c);
 uint32_t SymConvert(char c, char c1, char c2);

@@ -22,8 +22,8 @@ void fd_seek(int fd, size_t off, size_t whence) {
 	);
 }
 
-size_t fd_tell(int fd) {
-    size_t value = 0;
+int fd_tell(int fd) {
+    int value = 0;
     _syscall(
             SYSCALL_FILE_DESCR_TELL,
             fd,

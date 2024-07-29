@@ -1,28 +1,23 @@
-#include "iostream"
 #include "memory"
-#include "string"
+#include "fstream"
+
+extern "C" {
+	void printf(const char* ch, ...);
+}
 
 using namespace std;
 
 int main() {
 	__cpp_init();
 
+	
+	std::fstream file("R:\\test.asm", std::ios::in);
 
-	/*map<string, int> pokedex;
+	file.seekg(22, std::ios::beg);
+	
+	auto cur = file.tellg();
 
-	pokedex["bulbasaur"] = 1;
-	pokedex["pikachu"] = 25;
-	pokedex["zeraora"] = 807;
-	pokedex["mightyena"] = 262;
-	pokedex["eevee"] = 133;
-
-	for(const auto& pair : pokedex) {
-		printf("%s is nr.%u\n", pair.first.c_str(), pair.second);
-	}*/
-
-	std::string mystring = "Hello, World from C++!";
-
-	cout << mystring << " " << 123456 << endl << endl;
+	printf("%d == 22\n", cur);
 
 	return 0;
 }
