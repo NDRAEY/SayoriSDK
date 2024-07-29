@@ -17,3 +17,7 @@ $(OBJS): %.o: %.cpp
 
 $(OUT): $(OBJS)
 	$(AR) rs $(OUT) $(OBJS)
+
+ext_compiler:
+	@echo CPPFLAGS $(CPPFLAGS)
+	@echo LIBCPP $(OUT)

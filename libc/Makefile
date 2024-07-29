@@ -20,3 +20,7 @@ $(OBJS): %.o: %.c
 
 $(OUT): $(ASM_OBJS) $(OBJS)
 	$(AR) rs $(OUT) $(ASM_OBJS) $(OBJS)
+
+ext_compiler:
+	@echo CFLAGS $(CFLAGS)
+	@echo LIBC $(OUT)
