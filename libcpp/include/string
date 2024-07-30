@@ -58,7 +58,7 @@ namespace std {
 
 	private:
 		char* string_container = nullptr;
-		int _length = 0;
+		size_t _length = 0;
 	};
 
 	int stoi(const std::string& str, size_t* pos = nullptr, int base = 10);

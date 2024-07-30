@@ -75,6 +75,11 @@ namespace std {
 
 	void string::resize(size_t size) {
 		string_container = (char*)realloc(string_container, size + 1);
+		
+		if(size > _length) {
+			memset(string_container + _length - 1, 0, (size - _length) + 1);
+		}
+
 		string_container[size] = 0;
 
 		_length = size;
@@ -133,7 +138,7 @@ namespace std {
 	}
 
 	char string::operator[](int index) {
-		if(index < 0 || index >= _length) {
+		if(index < 0 || (size_t)index >= _length) {
 			return 0;
 		}
 
